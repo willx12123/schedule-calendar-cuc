@@ -1,12 +1,14 @@
 <template>
-  <div class="home"></div>
+  <div class="help">
+    <h1>Help page works!</h1>
+  </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
 
 export default defineComponent({
-  name: 'Home',
+  name: 'Help',
   setup() {
     return {};
   },
