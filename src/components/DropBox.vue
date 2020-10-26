@@ -13,7 +13,7 @@
 import { defineComponent } from 'vue';
 
 export default defineComponent({
-  name: 'DragInBox',
+  name: 'DropBox',
   setup() {
     const handleFileDrop = () => {
       console.log('拖入了');

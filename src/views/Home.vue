@@ -1,18 +1,21 @@
 <template>
   <div class="home-wrapper">
-    <drag-in-box />
+    <drop-box />
+    <download-button />
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
 
-import DragInBox from '@/components/DragInBox.vue';
+import DropBox from '@/components/DropBox.vue';
+import DownloadButton from '@/components/DownloadButton.vue';
 
 export default defineComponent({
   name: 'Home',
   components: {
-    DragInBox,
+    DropBox,
+    DownloadButton,
   },
   setup() {
     return {};
@@ -23,6 +26,7 @@ export default defineComponent({
 <style scoped lang="scss">
 .home-wrapper {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
