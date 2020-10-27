@@ -4,39 +4,41 @@ import * as XLSX from 'xlsx';
 import { cal } from '@/store';
 
 import { Class } from '@/interfaces/class';
+import { toDate } from '@/lib/toDate';
 
-import { handleSheet } from '@/lib/handleSheet';
-import { handleDate } from '@/lib/handleDate';
+import { useXlsx } from '@/hooks/useXlsx';
+
+const { handleSheet } = useXlsx();
+
+const addToCalendar = (classes: Class[]) => {
+  classes.forEach((item) => {
+    const {
+      id,
+      name,
+      classroom,
+      teacher,
+      startWeek,
+      endWeek,
+      start,
+      end,
+      day,
+    } = item;
+    cal.addEvent(
+      `${id} ${name}`,
+      teacher,
+      classroom,
+      toDate(startWeek, day, start).toString(),
+      toDate(startWeek, day, end, true).toString(),
+      {
+        freq: 'WEEKLY',
+        until: toDate(endWeek + 1, day),
+      }
+    );
+  });
+};
 
 export const useFile = () => {
   const reader = ref<FileReader>(new FileReader());
-
-  const addToCalendar = (classes: Class[]) => {
-    classes.forEach((item) => {
-      const {
-        id,
-        name,
-        classroom,
-        teacher,
-        startWeek,
-        endWeek,
-        start,
-        end,
-        day,
-      } = item;
-      cal.addEvent(
-        `${id} ${name}`,
-        teacher,
-        classroom,
-        handleDate(startWeek, day, start).toString(),
-        handleDate(startWeek, day, end, true).toString(),
-        {
-          freq: 'WEEKLY',
-          until: handleDate(endWeek + 1, day),
-        }
-      );
-    });
-  };
 
   const handleFileDrop = (e: DragEvent) => {
     const files = e.dataTransfer?.files;

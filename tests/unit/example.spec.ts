@@ -1,12 +1,13 @@
-import { shallowMount } from '@vue/test-utils';
-import HelloWorld from '@/components/HelloWorld.vue';
-
-describe('HelloWorld.vue', () => {
-  it('renders props.msg when passed', () => {
-    const msg = 'new message';
-    const wrapper = shallowMount(HelloWorld, {
-      props: { msg },
-    });
-    expect(wrapper.text()).toMatch(msg);
-  });
-});
+// import { shallowMount } from '@vue/test-utils';
+//
+// import DownloadButton from '@/components/DownloadButton.vue';
+//
+// describe('DownloadButton.vue', () => {
+//   it('renders props.msg when passed', () => {
+//     const msg = 'new message';
+//     const wrapper = shallowMount(DownloadButton, {
+//       props: { msg },
+//     });
+//     expect(wrapper.text()).toMatch(msg);
+//   });
+// });

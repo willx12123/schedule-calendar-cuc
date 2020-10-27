@@ -1,4 +1,6 @@
+// 第一周开始日期
 const basic = new Date('2020-09-07T00:00:00');
+// 每节课的小时数
 const classOrder = [
   8,
   9,
@@ -16,7 +18,7 @@ const classOrder = [
 ];
 const orderTimeArr = classOrder.map((time) => Math.floor(time * 3600000));
 
-export const handleDate = (
+export const toDate = (
   weekNumber: number,
   weekday: number,
   order?: number,

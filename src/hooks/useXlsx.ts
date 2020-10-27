@@ -1,4 +1,5 @@
-import { Cell } from '@/interfaces/cell';
+import * as XLSX from 'xlsx';
+
 import { Class } from '@/interfaces/class';
 
 const weekDayArr = [
@@ -11,7 +12,7 @@ const weekDayArr = [
   '星期日',
 ];
 
-export const handleClasses = (sheet: { [p: string]: Cell }) => {
+const toClasses = (sheet: XLSX.WorkSheet) => {
   const cells = Object.keys(sheet);
   const classIds = cells.filter((cell) => cell.startsWith('A')).slice(1);
   const classNames = cells.filter((cell) => cell.startsWith('B')).slice(1);
@@ -43,4 +44,15 @@ export const handleClasses = (sheet: { [p: string]: Cell }) => {
     });
   }
   return classes;
+};
+
+export const useXlsx = () => {
+  const handleSheet = (sheets: { [p: string]: XLSX.WorkSheet }) => {
+    const firstSheet = sheets[Object.keys(sheets)[0]];
+    return toClasses(firstSheet);
+  };
+
+  return {
+    handleSheet,
+  };
 };
