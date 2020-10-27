@@ -4,7 +4,9 @@
     <main>
       <router-view />
     </main>
-    <footer></footer>
+    <footer>
+      感谢邱郁文同学在百忙之中抽出时间为我制作的设计稿~
+    </footer>
   </div>
 </template>
 
@@ -52,8 +54,15 @@ export default defineComponent({
   }
 
   > footer {
-    height: 160px;
+    height: 100px;
     width: 100%;
+    padding-top: 16px;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    color: rgba(0, 0, 0, 0.32);
   }
 }
 </style>
