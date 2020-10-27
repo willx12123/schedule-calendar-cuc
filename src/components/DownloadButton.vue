@@ -1,17 +1,24 @@
 <template>
   <button
     ref="button"
-    :class="{ disable: !store.state.isDropped }"
+    :class="buttonClass"
     :style="buttonStyle"
     @click="handleDownload"
-    :disabled="!store.state.isDropped"
+    :disabled="isDisabled"
   >
     下载日历文件
   </button>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, reactive, onMounted, watchEffect } from 'vue';
+import {
+  defineComponent,
+  ref,
+  reactive,
+  onMounted,
+  watchEffect,
+  computed,
+} from 'vue';
 
 import { store } from '@/store';
 
@@ -32,12 +39,14 @@ export default defineComponent({
     });
 
     watchEffect(() => {
-      if (store.state.isDropped) {
-        buttonStyle.background = '#69c5ff';
-      } else {
-        buttonStyle.background = '#E4E4E4';
-      }
+      const { isDropped } = store.state;
+      buttonStyle.background = isDropped ? '#69c5ff' : '#E4E4E4';
     });
+
+    const buttonClass = computed<string>(() =>
+      !store.state.isDropped ? 'disable' : ''
+    );
+    const isDisabled = computed<boolean>(() => !store.state.isDropped);
 
     onMounted(() => {
       const buttonHeight = button.value?.clientHeight;
@@ -49,7 +58,8 @@ export default defineComponent({
     return {
       button,
       buttonStyle,
-      store,
+      buttonClass,
+      isDisabled,
       handleDownload,
     };
   },

@@ -3,22 +3,34 @@
     class="drag-in-wrapper"
     @dragover.prevent.stop
     @dragenter.prevent.stop
-    @drop.prevent.stop="handleFileDrop"
+    @drop.prevent.stop="onFileDrop"
   >
-    拖拽到此处
+    {{ '拖拽课表 Excel 文件到此处' }}
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+
+import { store } from '@/store';
+
 import { useFile } from '@/hooks/useFile';
 
 export default defineComponent({
   name: 'DropBox',
   setup() {
     const { handleFileDrop } = useFile();
+    const onFileDrop = (e: DragEvent) => {
+      try {
+        handleFileDrop(e);
+        store.fileDropped();
+      } catch (e) {
+        console.log(e);
+      }
+    };
     return {
-      handleFileDrop,
+      onFileDrop,
+      store,
     };
   },
 });
