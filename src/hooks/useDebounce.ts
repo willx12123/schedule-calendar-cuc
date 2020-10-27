@@ -1,5 +1,5 @@
 export const useDebounce = (fn: Function, wait: number) => {
-  let timer: number | null = null;
+  let timer: NodeJS.Timeout | null = null;
   return () => {
     if (timer) {
       clearTimeout(timer);

@@ -81,6 +81,7 @@ button {
   color: #ffffff;
 
   cursor: pointer;
+  user-select: none;
   transition: 100ms;
 
   &:hover {

@@ -5,12 +5,27 @@
     @dragenter.prevent.stop
     @drop.prevent.stop="onFileDrop"
   >
-    {{ '拖拽课表 Excel 文件到此处' }}
+    <span>{{ attention }}</span>
+    <img
+      class="drop-excel-here"
+      v-if="!store.state.isDropped"
+      :src="dropHere"
+      alt=""
+    />
+    <img
+      class="calendar-in-file"
+      v-if="store.state.isDropped"
+      :src="icsInFile"
+      alt=""
+    />
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, computed } from 'vue';
+
+import icsInFile from '@/assets/ics-in-file.svg';
+import dropHere from '@/assets/drop-here.svg';
 
 import { store } from '@/store';
 
@@ -28,8 +43,18 @@ export default defineComponent({
         console.log(e);
       }
     };
+
+    const attention = computed<string>(() =>
+      store.state.isDropped
+        ? '课表日历文件已生成，可下载后导入任意日历软件中哦～'
+        : '拖拽课表 Excel 文件到此处'
+    );
+
     return {
       onFileDrop,
+      attention,
+      icsInFile,
+      dropHere,
       store,
     };
   },
@@ -46,7 +71,31 @@ export default defineComponent({
   background: rgba(216, 216, 216, 0.16);
 
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  font-size: 20px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.32);
+
+  position: relative;
+
+  user-select: none;
+
+  > img {
+    object-fit: cover;
+
+    &.drop-excel-here {
+      position: absolute;
+      right: 80px;
+      top: -112px;
+    }
+
+    &.calendar-in-file {
+      width: 124px;
+      margin: 16px;
+    }
+  }
 }
 </style>

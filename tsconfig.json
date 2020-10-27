@@ -11,6 +11,7 @@
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,
     "baseUrl": ".",
+    "typeRoots": ["./src/assets/index.d.ts"],
     "types": ["webpack-env", "jest"],
     "paths": {
       "@/*": ["src/*"]
