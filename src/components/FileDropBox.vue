@@ -76,7 +76,6 @@ export default defineComponent({
   align-items: center;
 
   font-size: 20px;
-  font-weight: 500;
   color: rgba(0, 0, 0, 0.32);
 
   position: relative;

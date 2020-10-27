@@ -22,7 +22,7 @@ $hover-color: rgba(70, 124, 231, 0.87);
 
 nav {
   width: 100%;
-  padding: 32px 0 8px;
+  padding: 40px 0 8px;
   display: flex;
   justify-content: center;
 
@@ -31,16 +31,20 @@ nav {
     padding: 12px;
     border-radius: 8px;
 
-    font-size: 16px;
+    font-size: 20px;
     color: rgba(0, 0, 0, 0.54);
     text-align: center;
-    font-weight: 600;
+    font-weight: 500;
 
     transition: 225ms;
 
     &:hover {
       color: $hover-color;
       background: rgba(0, 0, 0, 0.12);
+    }
+
+    &.router-link-active {
+      color: $hover-color;
     }
   }
 }
