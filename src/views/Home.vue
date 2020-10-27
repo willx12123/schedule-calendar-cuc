@@ -8,7 +8,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 
-import DropBox from '@/components/DropBox.vue';
+import DropBox from '@/components/FileDropBox.vue';
 import DownloadButton from '@/components/DownloadButton.vue';
 
 export default defineComponent({
