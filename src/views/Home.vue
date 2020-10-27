@@ -1,7 +1,7 @@
 <template>
   <div class="home-wrapper">
     <drop-box />
-    <download-button />
+    <download-button class="download-button" />
   </div>
 </template>
 
@@ -29,5 +29,9 @@ export default defineComponent({
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  > .download-button {
+    margin: 40px 0;
+  }
 }
 </style>

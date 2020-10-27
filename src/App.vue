@@ -41,7 +41,7 @@ export default defineComponent({
   flex-direction: column;
   align-items: center;
 
-  background: #f5f5f5;
+  background: #fefefe;
 
   > main {
     padding-bottom: 40px;

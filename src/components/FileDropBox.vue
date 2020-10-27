@@ -26,9 +26,12 @@ export default defineComponent({
 
 <style scoped lang="scss">
 .drag-in-wrapper {
-  width: 640px;
+  min-width: 640px;
+  width: 33%;
+  max-width: 800px;
   height: 346px;
-  background: #d8d8d8;
+  border-radius: 20px;
+  background: rgba(216, 216, 216, 0.16);
 
   display: flex;
   justify-content: center;

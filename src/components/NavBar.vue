@@ -18,6 +18,8 @@ export default defineComponent({
 </script>
 
 <style scoped lang="scss">
+$hover-color: rgba(70, 124, 231, 0.87);
+
 nav {
   width: 100%;
   padding: 32px 0 8px;
@@ -37,7 +39,7 @@ nav {
     transition: 225ms;
 
     &:hover {
-      color: #3866d0;
+      color: $hover-color;
       background: rgba(0, 0, 0, 0.12);
     }
   }
