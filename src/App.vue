@@ -1,12 +1,6 @@
 <template>
   <div class="app-wrapper" :style="appStyle">
-    <nav>
-      <router-link to="/">Home</router-link>
-      |
-      <router-link to="/about">About</router-link>
-      |
-      <router-link to="/help">Help</router-link>
-    </nav>
+    <nav-bar />
     <main>
       <router-view />
     </main>
@@ -18,8 +12,13 @@
 import { defineComponent, computed } from 'vue';
 import { useWindow } from '@/hooks/useWindow';
 
+import NavBar from '@/components/NavBar.vue';
+
 export default defineComponent({
   name: 'App',
+  components: {
+    NavBar,
+  },
   setup() {
     const { clientSize } = useWindow();
     const appStyle = computed(() => {
@@ -42,12 +41,7 @@ export default defineComponent({
   flex-direction: column;
   align-items: center;
 
-  > nav {
-    width: 100%;
-    padding: 8px 0;
-    display: flex;
-    justify-content: center;
-  }
+  background: #f5f5f5;
 
   > main {
     padding-bottom: 40px;
