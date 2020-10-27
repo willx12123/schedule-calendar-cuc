@@ -1,6 +1,6 @@
 module.exports = {
   publicPath:
-    process.env.NODE_ENV === 'production' ? '/schedule-calendar-cuc/' : './',
+    process.env.NODE_ENV === 'production' ? '/schedule-calendar-cuc/dist/' : './',
   productionSourceMap: false,
   pwa: {
     manifestOptions: {
