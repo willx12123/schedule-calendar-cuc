@@ -1,7 +1,7 @@
 import { ref } from 'vue';
 import * as XLSX from 'xlsx';
 
-import { cal } from '@/store';
+import { store } from '@/store';
 
 import { Class } from '@/interfaces/class';
 import { toDate } from '@/lib/toDate';
@@ -23,7 +23,7 @@ const addToCalendar = (classes: Class[]) => {
       end,
       day,
     } = item;
-    cal.addEvent(
+    store.cal.addEvent(
       `${id} ${name}`,
       teacher,
       classroom,
@@ -55,7 +55,6 @@ export const useFile = () => {
       try {
         classes = handleSheet(workbook.Sheets);
       } catch (e) {
-        console.log(e);
         throw new Error('处理 sheet 失败');
       }
 
