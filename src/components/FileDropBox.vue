@@ -5,10 +5,18 @@
     @dragenter.prevent.stop
     @drop.prevent.stop="onFileDrop"
   >
-    <span v-if="!isPhone">{{ attention }}</span>
-    <button v-else @click="emitInputFile">点击选择文件</button>
+    <span>{{ attention }}</span>
+    <button v-if="buttonVisible" @click="emitInputFile">
+      点击选择文件
+    </button>
     <img :class="img.className" :src="img.src" alt="" />
-    <input type="file" @change="selectFile" ref="fileInput" multiple />
+    <input
+      type="file"
+      @change="selectFile"
+      ref="fileInput"
+      style="display: none"
+      multiple
+    />
   </div>
 </template>
 
@@ -29,6 +37,7 @@ export default defineComponent({
     onMounted(() => fileInput.value);
 
     const isPhone = document.body.clientWidth <= 450;
+    const buttonVisible = computed(() => isPhone && !store.state.isDropped);
 
     const { handleFile } = useFile();
     const onFileDrop = (e: DragEvent) => {
@@ -61,6 +70,8 @@ export default defineComponent({
     const attention = computed<string>(() =>
       store.state.isDropped
         ? '课表日历文件已生成，可下载后导入任意日历软件中哦～'
+        : isPhone
+        ? '请选择课表 Excel 文件'
         : '拖拽课表 Excel 文件到此处'
     );
 
@@ -71,6 +82,8 @@ export default defineComponent({
       selectFile,
       attention,
       img,
+      fileInput,
+      buttonVisible,
     };
   },
 });
@@ -90,9 +103,6 @@ export default defineComponent({
   justify-content: center;
   align-items: center;
 
-  font-size: 20px;
-  color: rgba(0, 0, 0, 0.32);
-
   position: relative;
 
   user-select: none;
@@ -102,7 +112,23 @@ export default defineComponent({
     min-width: 0;
   }
 
-  > input {
+  > span {
+    font-size: 20px;
+    color: rgba(0, 0, 0, 0.32);
+
+    @media (max-width: 450px) {
+      color: rgba(0, 0, 0, 0.4);
+      padding: 0 40px;
+      font-size: 14px;
+    }
+  }
+
+  > button {
+    margin: 8px;
+    color: rgba(0, 0, 0, 0.72);
+    padding: 4px 12px;
+    border: 0.5px solid rgba(0, 0, 0, 0.34);
+    border-radius: 4px;
     background: transparent;
   }
 
