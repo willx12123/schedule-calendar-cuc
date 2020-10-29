@@ -1,7 +1,7 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "c8501cc2e445913afcf3",
-    "url": "/schedule-calendar-cuc/dist/css/app.51eac1be.css"
+    "revision": "95827c6b98ccb80ef72a",
+    "url": "/schedule-calendar-cuc/dist/css/app.f5b3ea9d.css"
   },
   {
     "revision": "23225326446fec12c332",
@@ -32,12 +32,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/schedule-calendar-cuc/dist/img/output.e60130a1.png"
   },
   {
-    "revision": "06b0d333093aa20ab74c025c320e7746",
+    "revision": "4696c8d70fe00484ad2a77de31d0bac4",
     "url": "/schedule-calendar-cuc/dist/index.html"
   },
   {
-    "revision": "c8501cc2e445913afcf3",
-    "url": "/schedule-calendar-cuc/dist/js/app.1265cb1f.js"
+    "revision": "95827c6b98ccb80ef72a",
+    "url": "/schedule-calendar-cuc/dist/js/app.a06a5b79.js"
   },
   {
     "revision": "23225326446fec12c332",

@@ -25,7 +25,7 @@ export default defineComponent({
     DownloadButton,
   },
   setup() {
-    const isAlert = ref<boolean>(true);
+    const isAlert = ref<boolean>(false);
     const handleConfirm = () => {
       isAlert.value = false;
     };
