@@ -24,7 +24,7 @@ import { useFile } from '@/hooks/useFile';
 
 export default defineComponent({
   name: 'FileDropBox',
-  setup: function() {
+  setup() {
     const fileInput = ref<HTMLInputElement | null>(null);
     onMounted(() => fileInput.value);
 
