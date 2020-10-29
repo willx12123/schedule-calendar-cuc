@@ -5,24 +5,15 @@
     @dragenter.prevent.stop
     @drop.prevent.stop="onFileDrop"
   >
-    <span>{{ attention }}</span>
-    <img
-      class="drop-excel-here"
-      v-if="!store.state.isDropped"
-      :src="dropHere"
-      alt=""
-    />
-    <img
-      class="calendar-in-file"
-      v-if="store.state.isDropped"
-      :src="icsInFile"
-      alt=""
-    />
+    <span v-if="!isPhone">{{ attention }}</span>
+    <button v-else @click="emitInputFile">点击选择文件</button>
+    <img :class="img.className" :src="img.src" alt="" />
+    <input type="file" @change="selectFile" ref="fileInput" multiple />
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, computed } from 'vue';
+import { defineComponent, ref, reactive, computed, onMounted } from 'vue';
 
 import icsInFile from '@/assets/ics-in-file.svg';
 import dropHere from '@/assets/drop-here.svg';
@@ -32,17 +23,40 @@ import { store } from '@/store';
 import { useFile } from '@/hooks/useFile';
 
 export default defineComponent({
-  name: 'DropBox',
-  setup() {
-    const { handleFileDrop } = useFile();
+  name: 'FileDropBox',
+  setup: function() {
+    const fileInput = ref<HTMLInputElement | null>(null);
+    onMounted(() => fileInput.value);
+
+    const isPhone = document.body.clientWidth <= 450;
+
+    const { handleFile } = useFile();
     const onFileDrop = (e: DragEvent) => {
-      try {
-        handleFileDrop(e);
-        store.fileDropped();
-      } catch (e) {
-        console.log(e);
+      const files = e.dataTransfer?.files;
+      if (!files) {
+        console.error('无法找到文件');
+        return;
       }
+      handleFile(files[0]);
+      store.fileDropped();
     };
+    const selectFile = (e: InputEvent) => {
+      const files = (e.target as HTMLInputElement).files;
+      if (!files) {
+        console.error('无法找到文件');
+        return;
+      }
+      handleFile(files[0]);
+      store.fileDropped();
+    };
+    const emitInputFile = () => {
+      fileInput.value?.click();
+    };
+
+    const img = reactive({
+      src: store.state.isDropped ? icsInFile : dropHere,
+      className: store.state.isDropped ? 'calendar-in-file' : 'drop-excel-here',
+    });
 
     const attention = computed<string>(() =>
       store.state.isDropped
@@ -51,11 +65,12 @@ export default defineComponent({
     );
 
     return {
+      isPhone,
       onFileDrop,
+      emitInputFile,
+      selectFile,
       attention,
-      icsInFile,
-      dropHere,
-      store,
+      img,
     };
   },
 });
@@ -82,10 +97,24 @@ export default defineComponent({
 
   user-select: none;
 
+  @media (max-width: 450px) {
+    width: calc(100% - 40px);
+    min-width: 0;
+  }
+
+  > input {
+    background: transparent;
+  }
+
   > img {
     object-fit: cover;
 
     &.drop-excel-here {
+      @media (max-width: 450px) {
+        width: 120px;
+        right: 50px;
+        top: -50px;
+      }
       position: absolute;
       right: 80px;
       top: -112px;
@@ -94,6 +123,9 @@ export default defineComponent({
     &.calendar-in-file {
       width: 124px;
       margin: 16px;
+      @media (max-width: 450px) {
+        width: 80px;
+      }
     }
   }
 }

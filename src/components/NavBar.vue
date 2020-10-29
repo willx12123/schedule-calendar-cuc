@@ -26,6 +26,10 @@ nav {
   display: flex;
   justify-content: center;
 
+  @media (max-width: 540px) {
+    padding: 8px;
+  }
+
   > a {
     width: 118px;
     padding: 12px;
@@ -38,9 +42,17 @@ nav {
 
     transition: 225ms;
 
+    @media (max-width: 540px) {
+      padding: 8px;
+    }
+
     &:hover {
       color: $hover-color;
       background: rgba(0, 0, 0, 0.12);
+
+      @media (max-width: 540px) {
+        background: transparent;
+      }
     }
 
     &.router-link-active {

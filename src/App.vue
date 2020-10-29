@@ -39,6 +39,7 @@ export default defineComponent({
 
 <style scoped lang="scss">
 .app-wrapper {
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -46,11 +47,10 @@ export default defineComponent({
   background: #fefefe;
 
   > main {
-    padding-bottom: 40px;
+    width: 100%;
     flex-grow: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    padding-bottom: 40px;
+    overflow: auto;
   }
 
   > footer {

@@ -40,12 +40,8 @@ const addToCalendar = (classes: Class[]) => {
 export const useFile = () => {
   const reader = ref<FileReader>(new FileReader());
 
-  const handleFileDrop = (e: DragEvent) => {
-    const files = e.dataTransfer?.files;
-    if (!files) {
-      throw new Error('无法找到文件');
-    }
-    reader.value.readAsArrayBuffer(files[0]);
+  const handleFile = (file: File) => {
+    reader.value.readAsArrayBuffer(file);
 
     reader.value.onload = (e: ProgressEvent<FileReader>) => {
       const data = new Uint8Array(e.target?.result as ArrayBuffer);
@@ -65,6 +61,6 @@ export const useFile = () => {
 
   return {
     reader,
-    handleFileDrop,
+    handleFile,
   };
 };
