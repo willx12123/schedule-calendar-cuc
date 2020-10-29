@@ -25,6 +25,10 @@ export default defineComponent({
 
 <style scoped lang="scss">
 .home-wrapper {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+
   width: 100%;
   height: 100%;
 

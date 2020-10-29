@@ -22,7 +22,8 @@ $hover-color: rgba(70, 124, 231, 0.87);
 
 nav {
   width: 100%;
-  padding: 40px 0 8px;
+  height: 88px;
+  padding: 32px 0 8px;
   display: flex;
   justify-content: center;
 
@@ -32,9 +33,12 @@ nav {
 
   > a {
     width: 118px;
-    padding: 12px;
+    height: 100%;
     border-radius: 8px;
 
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: 20px;
     color: rgba(0, 0, 0, 0.54);
     text-align: center;

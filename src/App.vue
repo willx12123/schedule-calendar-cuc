@@ -1,11 +1,13 @@
 <template>
-  <div class="app-wrapper" :style="appStyle">
+  <div class="app-wrapper">
     <nav-bar />
-    <main>
+    <main :style="mainStyle">
       <router-view />
     </main>
     <footer>
-      感谢邱郁文同学在百忙之中抽出时间为我制作的设计稿~
+      <p>
+        感谢邱郁文同学在百忙之中抽出时间为我制作的设计稿~
+      </p>
     </footer>
   </div>
 </template>
@@ -23,15 +25,12 @@ export default defineComponent({
   },
   setup() {
     const { clientSize } = useWindow();
-    const appStyle = computed(() => {
-      const { width, height } = clientSize;
-      return {
-        width: `${width}px`,
-        height: `${height}px`,
-      };
-    });
+    const mainStyle = computed<string>(
+      () => `min-height: ${clientSize.height - 188}px`
+    );
+
     return {
-      appStyle,
+      mainStyle,
     };
   },
 });
@@ -40,17 +39,14 @@ export default defineComponent({
 <style scoped lang="scss">
 .app-wrapper {
   overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 
   background: #fefefe;
 
   > main {
     width: 100%;
-    flex-grow: 1;
     padding-bottom: 40px;
-    overflow: scroll;
+
+    position: relative;
   }
 
   > footer {
@@ -58,11 +54,11 @@ export default defineComponent({
     width: 100%;
     padding-top: 16px;
 
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-
-    color: rgba(0, 0, 0, 0.32);
+    > p {
+      text-align: center;
+      color: rgba(0, 0, 0, 0.32);
+      font-size: 14px;
+    }
   }
 }
 </style>

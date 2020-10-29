@@ -49,16 +49,19 @@ export default defineComponent({
 <style scoped lang="scss">
 .help {
   width: 100%;
+  height: 100%;
   padding: 0 20px;
+
+  overflow: auto;
 
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
 
   .word-tutorial {
     width: 100%;
-    max-width: 1040px;
+    max-width: 678px;
+    margin-top: 32px;
 
     display: flex;
     flex-direction: column;

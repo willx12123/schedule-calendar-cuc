@@ -29,6 +29,7 @@ export default defineComponent({
 .about {
   width: 100%;
   padding: 0 20px;
+
   display: flex;
   flex-direction: column;
   align-items: center;
