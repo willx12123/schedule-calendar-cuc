@@ -54,7 +54,6 @@ export const useFile = () => {
         throw new Error('处理 sheet 失败');
       }
 
-      alert('处理成功，请点击下载日历文件');
       addToCalendar(classes);
     };
   };

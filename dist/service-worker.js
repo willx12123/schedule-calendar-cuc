@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/schedule-calendar-cuc/dist/precache-manifest.71837eeb832a184deff168322925e198.js"
+  "/schedule-calendar-cuc/dist/precache-manifest.cff4e3b5335e639916e1c86e48e5feb8.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "schedule-calendar-cuc"});

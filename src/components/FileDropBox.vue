@@ -35,7 +35,7 @@ import { useFile } from '@/hooks/useFile';
 export default defineComponent({
   name: 'FileDropBox',
   props: {
-    onComplete: {
+    onDropped: {
       type: Function,
       required: true,
     },
@@ -57,6 +57,8 @@ export default defineComponent({
         return;
       }
       handleFile(files[0]);
+      const { onDropped } = props;
+      onDropped();
       store.fileDropped();
     };
     const selectFile = (e: InputEvent) => {
@@ -66,7 +68,8 @@ export default defineComponent({
         return;
       }
       handleFile(files[0]);
-      props.onComplete();
+      const { onDropped } = props;
+      onDropped();
       store.fileDropped();
     };
     const emitInputFile = () => {

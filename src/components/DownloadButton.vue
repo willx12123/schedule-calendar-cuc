@@ -85,7 +85,8 @@ button {
   transition: 100ms;
 
   &:hover {
-    box-shadow: 0 10px 30px 1px rgba(105, 197, 255, 0.54);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.14), 0 1px 18px rgba(0, 0, 0, 0.12),
+    0 3px 5px rgba(0, 0, 0, 0.2);
   }
 
   &:active {
