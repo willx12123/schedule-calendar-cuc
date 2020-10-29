@@ -50,7 +50,7 @@ export default defineComponent({
     width: 100%;
     flex-grow: 1;
     padding-bottom: 40px;
-    overflow: auto;
+    overflow: scroll;
   }
 
   > footer {

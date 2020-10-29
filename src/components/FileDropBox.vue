@@ -109,6 +109,7 @@ export default defineComponent({
 
   @media (max-width: 450px) {
     width: calc(100% - 40px);
+    height: 200px;
     min-width: 0;
   }
 
