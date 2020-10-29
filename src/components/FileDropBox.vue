@@ -23,7 +23,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, computed, onMounted } from 'vue';
+import { defineComponent, ref, computed } from 'vue';
 
 import icsInFile from '@/assets/ics-in-file.svg';
 import dropHere from '@/assets/drop-here.svg';
@@ -32,45 +32,36 @@ import { store } from '@/store';
 
 import { useFile } from '@/hooks/useFile';
 
+import { message } from 'ant-design-vue';
+
 export default defineComponent({
   name: 'FileDropBox',
-  props: {
-    onDropped: {
-      type: Function,
-      required: true,
-    },
-  },
-  setup(props) {
+  setup() {
     const fileInput = ref<HTMLInputElement | null>(null);
-    onMounted(() => fileInput.value);
 
     const isPhone = document.body.clientWidth <= 450;
     const buttonVisible = computed(() => isPhone && !store.state.isDropped);
     const isMouseDragOver = ref<boolean>(false);
 
     const { handleFile } = useFile();
+
     const onFileDrop = (e: DragEvent) => {
       isMouseDragOver.value = false;
+
       const files = e.dataTransfer?.files;
       if (!files) {
-        console.error('无法找到文件');
+        message.error('找不到文件');
         return;
       }
       handleFile(files[0]);
-      const { onDropped } = props;
-      onDropped();
-      store.fileDropped();
     };
     const selectFile = (e: InputEvent) => {
       const files = (e.target as HTMLInputElement).files;
       if (!files) {
-        console.error('无法找到文件');
+        message.error('找不到文件');
         return;
       }
       handleFile(files[0]);
-      const { onDropped } = props;
-      onDropped();
-      store.fileDropped();
     };
     const emitInputFile = () => {
       fileInput.value?.click();

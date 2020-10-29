@@ -1,42 +1,24 @@
 <template>
   <div class="home-wrapper">
-    <alert
-      v-if="isAlert"
-      alert-message="处理成功，请点击下载日历文件"
-      :on-confirm="handleConfirm"
-    />
-    <file-drop-box :on-dropped="handleAlert" />
+    <file-drop-box />
     <download-button class="download-button" />
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue';
+import { defineComponent } from 'vue';
 
 import FileDropBox from '@/components/FileDropBox.vue';
 import DownloadButton from '@/components/DownloadButton.vue';
-import Alert from '@/components/Modals/Alert.vue';
 
 export default defineComponent({
   name: 'Home',
   components: {
-    Alert,
     FileDropBox,
     DownloadButton,
   },
   setup() {
-    const isAlert = ref<boolean>(false);
-    const handleConfirm = () => {
-      isAlert.value = false;
-    };
-    const handleAlert = () => {
-      isAlert.value = true;
-    };
-    return {
-      isAlert,
-      handleConfirm,
-      handleAlert,
-    };
+    return {};
   },
 });
 </script>

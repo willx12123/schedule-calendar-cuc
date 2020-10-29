@@ -1,13 +1,15 @@
 <template>
-  <button
+  <a-button
+    type="primary"
     ref="button"
+    class="override-button"
     :class="buttonClass"
     :style="buttonStyle"
     @click="handleDownload"
     :disabled="isDisabled"
   >
     下载日历文件
-  </button>
+  </a-button>
 </template>
 
 <script lang="ts">
@@ -68,7 +70,8 @@ export default defineComponent({
 
 <style scoped lang="scss">
 $background-color: #69c5ff;
-button {
+.override-button {
+  height: auto;
   padding: 8px 98px;
   border: none;
   border-radius: 50px;
@@ -86,7 +89,8 @@ button {
 
   &:hover {
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.14), 0 1px 18px rgba(0, 0, 0, 0.12),
-    0 3px 5px rgba(0, 0, 0, 0.2);
+      0 3px 5px rgba(0, 0, 0, 0.2);
+    color: #ffffff;
   }
 
   &:active {

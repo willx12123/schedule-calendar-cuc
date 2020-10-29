@@ -1,6 +1,8 @@
 import { ref } from 'vue';
 import * as XLSX from 'xlsx';
 
+import { message } from 'ant-design-vue';
+
 import { store } from '@/store';
 
 import { Class } from '@/interfaces/class';
@@ -45,12 +47,21 @@ export const useFile = () => {
 
     reader.value.onload = (e: ProgressEvent<FileReader>) => {
       const data = new Uint8Array(e.target?.result as ArrayBuffer);
-      const workbook = XLSX.read(data, { type: 'array' });
+
+      let workbook;
+      try {
+        workbook = XLSX.read(data, { type: 'array' });
+      } catch (e) {
+        message.error('处理文件失败，请确认文件类型。');
+        throw new Error('处理文件失败');
+      }
 
       let classes: Class[];
       try {
         classes = handleSheet(workbook.Sheets);
+        store.fileDropped();
       } catch (e) {
+        message.error('处理 sheet 失败，请确认表格无误');
         throw new Error('处理 sheet 失败');
       }
 

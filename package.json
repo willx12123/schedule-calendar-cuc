@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@types/xlsx": "0.0.36",
+    "ant-design-vue": "^2.0.0-beta.10",
     "core-js": "^3.6.5",
     "ics-in-browser": "^1.0.0",
     "register-service-worker": "^1.7.1",
