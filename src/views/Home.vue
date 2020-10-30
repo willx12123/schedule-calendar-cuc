@@ -26,8 +26,6 @@ export default defineComponent({
   },
   setup() {
     const jumpToHelp = () => {
-      console.log('lalal');
-
       router.push('help');
     };
 

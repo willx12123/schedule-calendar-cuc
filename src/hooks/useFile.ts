@@ -66,6 +66,7 @@ export const useFile = () => {
       }
 
       addToCalendar(classes);
+      message.success('处理文件成功，请点击按钮下载');
     };
   };
 
