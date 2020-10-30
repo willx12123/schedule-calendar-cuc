@@ -26,7 +26,7 @@ const addToCalendar = (classes: Class[]) => {
       day,
     } = item;
     store.cal.addEvent(
-      `${id} ${name}`,
+      `${name} ${id}`,
       teacher,
       classroom,
       toDate(startWeek, day, start).toString(),
