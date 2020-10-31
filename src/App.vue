@@ -31,7 +31,7 @@ export default defineComponent({
   setup() {
     const { clientSize } = useWindow();
     const mainStyle = computed<string>(
-      () => `min-height: ${clientSize.height - 188}px`
+      () => `min-height: ${clientSize.height - 238}px`
     );
 
     return {
@@ -55,7 +55,7 @@ export default defineComponent({
   }
 
   > footer {
-    height: 100px;
+    height: 150px;
     width: 100%;
     padding-top: 16px;
 
@@ -65,6 +65,7 @@ export default defineComponent({
     text-align: center;
 
     > p {
+      margin: 2px 0;
       font-size: 12px;
       color: rgba(0, 0, 0, 0.32);
     }

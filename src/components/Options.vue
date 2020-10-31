@@ -60,6 +60,10 @@ export default defineComponent({
 
   font-size: 14px;
 
+  @media (max-width: 450px) {
+    width: 100%;
+  }
+
   > span {
     font-size: 12px;
     color: rgba(0, 0, 0, 0.45);
