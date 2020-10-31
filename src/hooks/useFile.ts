@@ -6,11 +6,21 @@ import { message } from 'ant-design-vue';
 import { store } from '@/store';
 
 import { Class } from '@/interfaces/class';
+import { Event } from '@/interfaces/event';
 import { toDate } from '@/lib/toDate';
 
 import { useXlsx } from '@/hooks/useXlsx';
 
 const { handleSheet } = useXlsx();
+
+const handleEvent = (event: Event) => {
+  const { description, location, begin, stop, subject, RRULE } = event;
+  if (!RRULE) {
+    store.cal.addEvent(subject, description, location, begin, stop);
+  } else {
+    store.cal.addEvent(subject, description, location, begin, stop, RRULE);
+  }
+};
 
 const addToCalendar = (classes: Class[]) => {
   if (store.state.isDropped) {
@@ -33,17 +43,20 @@ const addToCalendar = (classes: Class[]) => {
     if (!startTime || !endTime) {
       return;
     }
-    store.cal.addEvent(
-      `${name} ${teacher}`,
-      `课程号：${id}`,
-      classroom,
-      startTime,
-      endTime,
-      {
+    const event: Event = {
+      subject: `${name} ${teacher}`,
+      description: `课程号：${id}`,
+      location: classroom,
+      begin: startTime,
+      stop: endTime,
+    };
+    if (endWeek) {
+      event.RRULE = {
         freq: 'WEEKLY',
         until: toDate(endWeek + 1, day),
-      }
-    );
+      };
+    }
+    handleEvent(event);
   });
 };
 
