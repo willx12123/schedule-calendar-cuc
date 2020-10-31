@@ -5,9 +5,8 @@
       <router-view />
     </main>
     <footer>
-      <p>
-        感谢邱郁文同学在百忙之中抽出时间为我制作的设计稿~
-      </p>
+      <h1>请不要使用微信直接点开该网页！！！</h1>
+      <h1>请复制至 Chrome（推荐）、FireFox、Safari 访问！！！</h1>
     </footer>
   </div>
 </template>
@@ -54,10 +53,14 @@ export default defineComponent({
     width: 100%;
     padding-top: 16px;
 
-    > p {
-      text-align: center;
-      color: rgba(0, 0, 0, 0.32);
+    display: flex;
+    flex-direction: column;
+
+    text-align: center;
+
+    > h1 {
       font-size: 14px;
+      color: rgba(0, 0, 0, 0.87);
     }
   }
 }

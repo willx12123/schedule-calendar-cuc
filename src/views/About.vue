@@ -9,6 +9,9 @@
         若存在任何建议或 Bug 反馈，请联系：
         <strong>hangyu_xu@foxmail.com</strong>
       </p>
+      <p>
+        感谢邱郁文同学在百忙之中抽出时间为我制作的设计稿~
+      </p>
     </div>
   </div>
 </template>
