@@ -5,8 +5,14 @@
       <router-view />
     </main>
     <footer>
-      <h1>请不要使用微信直接点开该网页！！！</h1>
-      <h1>请复制至 Chrome（推荐）、FireFox、Safari 访问！！！</h1>
+      <p>
+        GitHub 仓库地址：<a
+          href="https://github.com/AerospaceXu/schedule-calendar-cuc"
+          >https://github.com/AerospaceXu/schedule-calendar-cuc</a
+        >
+      </p>
+      <p>请不要使用微信直接点开该网页！！！</p>
+      <p>请复制至 Chrome（推荐）、FireFox、Safari 访问！！！</p>
     </footer>
   </div>
 </template>
@@ -58,9 +64,9 @@ export default defineComponent({
 
     text-align: center;
 
-    > h1 {
-      font-size: 14px;
-      color: rgba(0, 0, 0, 0.87);
+    > p {
+      font-size: 12px;
+      color: rgba(0, 0, 0, 0.32);
     }
   }
 }

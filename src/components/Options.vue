@@ -51,7 +51,7 @@ export default defineComponent({
 
 <style scoped lang="scss">
 .options-wrapper {
-  width: 540px;
+  width: 600px;
   padding: 0 16px;
 
   display: flex;
@@ -61,6 +61,7 @@ export default defineComponent({
   font-size: 14px;
 
   > span {
+    font-size: 12px;
     color: rgba(0, 0, 0, 0.45);
     margin: 4px 0;
   }

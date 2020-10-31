@@ -1,35 +1,5 @@
 # schedule-calendar-cuc
 
-## Project setup
+启动项目：`npm install && npm run serve`。
 
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-
-```
-npm run build
-```
-
-### Run your unit tests
-
-```
-npm run test:unit
-```
-
-### Lints and fixes files
-
-```
-npm run lint
-```
-
-### Customize configuration
-
-See [Configuration Reference](https://cli.vuejs.org/config/).
+若有二次开发的需求

@@ -106,10 +106,10 @@ export default defineComponent({
 
 <style scoped lang="scss">
 .drag-in-wrapper {
-  width: 540px;
-  height: 250px;
+  width: 600px;
+  height: 300px;
   border-radius: 20px;
-  background: rgba(216, 216, 216, 0.16);
+  background: rgba(216, 216, 216, 0.24);
 
   display: flex;
   flex-direction: column;
@@ -136,7 +136,7 @@ export default defineComponent({
 
   > span {
     font-size: 20px;
-    color: rgba(0, 0, 0, 0.32);
+    color: rgba(0, 0, 0, 0.54);
     pointer-events: none;
 
     @media (max-width: 450px) {
