@@ -106,10 +106,8 @@ export default defineComponent({
 
 <style scoped lang="scss">
 .drag-in-wrapper {
-  min-width: 640px;
-  width: 33%;
-  max-width: 800px;
-  height: 346px;
+  width: 540px;
+  height: 250px;
   border-radius: 20px;
   background: rgba(216, 216, 216, 0.16);
 
@@ -121,6 +119,8 @@ export default defineComponent({
   position: relative;
 
   user-select: none;
+
+  transition: 225ms;
 
   &.drag-over {
     background: rgba(216, 216, 216, 0.54);
@@ -161,13 +161,14 @@ export default defineComponent({
     &.drop-excel-here {
       pointer-events: none;
       @media (max-width: 450px) {
-        width: 120px;
-        right: 50px;
+        width: 100px;
+        right: 40px;
         top: -50px;
       }
+      width: 150px;
       position: absolute;
-      right: 80px;
-      top: -112px;
+      right: 50px;
+      top: -80px;
     }
 
     &.calendar-in-file {

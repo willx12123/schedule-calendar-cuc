@@ -72,13 +72,13 @@ export default defineComponent({
 $background-color: #69c5ff;
 .override-button {
   height: auto;
-  padding: 8px 98px;
+  padding: 4px 80px;
   border: none;
   border-radius: 50px;
   outline: none;
   background: $background-color;
 
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 500;
   line-height: 40px;
   color: #ffffff;

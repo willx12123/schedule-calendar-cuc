@@ -51,22 +51,22 @@ export default defineComponent({
 
 <style scoped lang="scss">
 .options-wrapper {
-  min-width: 640px;
-  width: 33%;
-  max-width: 800px;
+  width: 540px;
   padding: 0 16px;
 
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 
+  font-size: 14px;
+
   > span {
-    color: rgba(0, 0, 0, 0.54);
+    color: rgba(0, 0, 0, 0.45);
     margin: 4px 0;
   }
 
   > .override-select {
-    color: rgba(0, 0, 0, 0.54);
+    color: rgba(0, 0, 0, 0.45);
   }
 
   > .help-guidance {
