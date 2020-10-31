@@ -172,6 +172,7 @@ export default defineComponent({
     }
 
     &.calendar-in-file {
+      pointer-events: none;
       width: 124px;
       margin: 16px;
       @media (max-width: 450px) {
