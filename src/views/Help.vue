@@ -2,6 +2,13 @@
   <div class="help">
     <div class="word-tutorial">
       <h1>Help page works!</h1>
+      <h2>视频教程</h2>
+      <p>
+        <strong>看这里 => </strong>
+        <a href="https://www.bilibili.com/video/BV1CT4y1F75Y/">B站视频教程</a>
+      </p>
+      <br />
+      <h2>图文教程</h2>
       <p><strong>第一步：</strong>打开 e.cuc.edu.cn，并点击“我的课表”。</p>
       <p>
         <strong>第二步：</strong>点击左上角的“列表模式”（“打印”按钮的右边）。
