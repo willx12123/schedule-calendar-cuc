@@ -1,9 +1,6 @@
 <template>
   <div class="home-wrapper">
-    <span v-if="!store.state.isDropped">
-      一头雾水？或许可以查看
-      <a-button type="link" @click="jumpToHelp">帮助</a-button>
-    </span>
+    <options />
     <file-drop-box />
     <download-button class="download-button" />
   </div>
@@ -12,27 +9,19 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 
-import router from '@/router';
-import { store } from '@/store';
-
 import FileDropBox from '@/components/FileDropBox.vue';
 import DownloadButton from '@/components/DownloadButton.vue';
+import Options from '@/components/Options.vue';
 
 export default defineComponent({
   name: 'Home',
   components: {
     FileDropBox,
     DownloadButton,
+    Options,
   },
   setup() {
-    const jumpToHelp = () => {
-      router.push('help');
-    };
-
-    return {
-      jumpToHelp,
-      store,
-    };
+    return {};
   },
 });
 </script>
@@ -50,10 +39,6 @@ export default defineComponent({
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
-  > span {
-    color: rgba(0, 0, 0, 0.54);
-  }
 
   > .download-button {
     margin: 40px 0;
