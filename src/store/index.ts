@@ -13,4 +13,5 @@ export const store = {
   state,
   cal: ics(),
   fileDropped: () => (state.isDropped = true),
+  resetCal: () => (store.cal = ics()),
 };

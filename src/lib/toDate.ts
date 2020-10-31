@@ -1,5 +1,12 @@
-// 第一周开始日期
-const basic = new Date('2020-09-07T00:00:00');
+import { message } from 'ant-design-vue';
+
+const termHash: {
+  [key: string]: string;
+} = {
+  '2021_SPRING': '2021-03-01T00:00:00',
+  '2020_AUTUMN': '2020-09-07T00:00:00',
+};
+
 // 每节课的小时数
 const classOrder = [
   8,
@@ -24,6 +31,14 @@ export const toDate = (
   order?: number,
   isEnd?: boolean
 ) => {
+  const term = window.localStorage.getItem('term') as string | null;
+  if (!term) {
+    message.error('学期获取错误，请清理缓存后重试');
+    return;
+  }
+  // 第一周开始日期
+  const basic = new Date(termHash[term]);
+
   const onlyDate = new Date(
     +basic + (weekNumber - 1) * 604800000 + (weekday - 1) * 86400000
   );
